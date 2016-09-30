@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+
+{%block titulo%}
+Registrate Ya, !!
+{%endblock titulo%}
+
+{%block head%}
+{%endblock head%}
+
+{%block contenido%}
+<h4>Nuevo Usuario</h4>
+<div align = "center" ></div>
+
+<form action="." method="post" accept-charset="utf-8" >
+{%csrf_token%}
+{{form.as_p}}
+<input type="submit" value= "Registrarse">
+</form>
+{%endblock contenido%}

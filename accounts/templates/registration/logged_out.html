@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{%block titulo%}
+Sesion Finalizada
+{%endblock titulo%}
+
+{% block contenido %}
+	<h1>Informe De Sesión</h1>
+	<p>Tu sesion Fue cerrada con éxito</p>
+	<p>Puedes volver a iniciar sesion 
+<a href="{%url 'accounts:login' %}">Aquí</a>
+	</p>
+
+{% endblock contenido %}

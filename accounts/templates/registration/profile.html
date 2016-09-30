@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Bienvenido a nuestro sitio Web
+	
+{% endblock titulo %}
+
+{%block head%}
+
+.fotico{
+	border:2px solid pink;
+	border-radious:50%
+	width: 100px;
+	height: 100px;
+}
+{%endblock head%}
+{% block contenido %}
+<img class = "fotico" src="{%if request.user.profile.photo %} {{request.user.profile.photo}} {%endif%}" alt="">
+<h1>Binvenido a tu perfil {{request.user.username}}</h1>
+<br>
+<br>
+<br>
+<form action="" method="post" enctype="multipart/form/data"> 
+{%csrf_token%}
+{{userform.as_p}}
+{{profileform.as_p}}
+<input type="submit" name="" value="guardar">
+</form>
+
+<a href="{%url 'accounts:logout' %}">
+	<<button type="">Cerrar Sesión</button>
+</a>
+<br> <br>
+{% endblock contenido %}
+

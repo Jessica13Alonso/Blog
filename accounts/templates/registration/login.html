@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Bienvenido a nuestro sitio Web
+	
+{% endblock titulo %}
+
+{% block contenido %}
+<div align = "center">
+	<h3> Inicia Sesión Ahora </h3>
+</div>
+{%if form.errors%}
+<p>Tu usuario y contraseña no coinciden, intentalo de nuevo</p>
+{% else %}
+<p>Ingresa con tu nuombre y contraseña</p>
+{%endif%}
+<!-- El FORMULARIO DE LOGIN EN DJANGO YA ESTA PREDETERMINADO -->
+<form action="{% url 'accounts:login'%}" method="post" accept-charset="utf-8">
+	{%csrf_token%}
+	{{form.as_p}}
+	<input type="hidden" name="next" value = "{{next}}"> <!-- EL next viene predeterminado en html y es ṕara regresar al usuario a la pagina previa al login -->
+	<input type="submit" name="" value="Inicia Sesión">
+</form>
+<br>
+<br>
+<div align="center">
+	<p>Puedes logearte con tu cuenta de facebook</p>
+	<a href="{%url 'social:begin' 'facebook' %}"><button>Aquí</button> </a>
+<br>
+	<p>Si aun no tienes cuenta registrate</p>
+	<a href="{%url 'accounts:registro' %}"> Aquí</a>
+</div>
+{% endblock contenido %}

@@ -1,0 +1,14 @@
+{%extends 'posts/list_view.html'%}
+
+{%block titulo%}
+<h1>Puedes Crear Un Nuevo Post</h1>
+{%endblock titulo%}
+#Renderiza el formulario como estilo formulario.
+{%block contenido%}
+<form action="." method="post" accept-charset="utf-8">
+	{%csrf_token%}
+	{{form.as_p}} 
+	<input type="submit", value="Publicar" >
+</form>
+<a href="{%url 'post:post_list' %}"><button>Regresar</button></a>
+{%endblock contenido%}

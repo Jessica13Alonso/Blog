@@ -1,0 +1,36 @@
+{%extends 'posts/list_view.html'%}
+
+{%block titulo%} #traera los contenidos de detail
+Detalle Post
+{%endblock titulo%}
+
+{%block contenido%}
+
+<h1>Bienvenido a mi blog</h1>
+<div align="center">
+<img src="/media/{{post.image}}" alt="">
+</div>
+<h1>{{post.titulo}}</h1>
+<p>{{post.contenido}}
+</p>
+
+{% for var in comentarios%}
+
+	<li>
+		{{var.autor}}
+		{{var.cuerpo}}
+	</li>
+	{%endfor%}
+#enviar por parrafos el formulario
+<span>{{post.creado}}</span>
+
+<form action="." method="post" accept-charset="utf-8">
+	{%csrf_token%}
+	{{form.as_p}} 
+	<input type="submit", value="Comentar">
+</form>
+
+
+<a href="{%url 'post:post_list'%}">Volver Atrás</a>
+
+{%endblock contenido%}
