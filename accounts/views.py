@@ -58,3 +58,6 @@ class Dashboard(View):
 				'profileform':profileform,
 			}
 			return render (request, template, context)
+
+	class newClass(View):
+		pass
